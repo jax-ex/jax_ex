@@ -2,8 +2,6 @@ use Mix.Config
 
 # Configure your database
 config :jax_ex, JaxEx.Repo,
-  username: "postgres",
-  password: "postgres",
   database: "jax_ex_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
