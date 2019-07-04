@@ -2,7 +2,7 @@ defmodule JaxExWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :jax_ex
 
   socket "/socket", JaxExWeb.UserSocket,
-    websocket: true,
+    websocket: [timeout: 45_000],
     longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
