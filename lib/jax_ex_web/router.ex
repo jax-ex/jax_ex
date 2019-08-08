@@ -19,8 +19,13 @@ defmodule JaxExWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", JaxExWeb do
-  #   pipe_through :api
-  # end
+  scope "/" do
+    pipe_through :api
+
+    forward "/api", Absinthe.Plug, schema: JaxExWeb.Schema
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: JaxExWeb.Schema,
+      interface: :simple
+  end
 end
