@@ -15,7 +15,10 @@ config :jax_ex, JaxExWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "v1paogiEPqD75NlliE8JOqtFi77++kAtjAmqVzBuqL+Zt9QeqpHOpex0SYQm5QNj",
   render_errors: [view: JaxExWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: JaxEx.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: JaxEx.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "iMsXpDao9A82cq8yIL9Ux8Ge7ukMzDeY"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,

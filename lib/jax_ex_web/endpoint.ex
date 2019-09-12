@@ -1,6 +1,8 @@
 defmodule JaxExWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :jax_ex
 
+  socket "/live", Phoenix.LiveView.Socket
+
   socket "/socket", JaxExWeb.UserSocket,
     websocket: [timeout: 45_000],
     longpoll: false
