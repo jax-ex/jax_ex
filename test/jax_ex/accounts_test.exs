@@ -6,8 +6,8 @@ defmodule JaxEx.AccountsTest do
   describe "users" do
     alias JaxEx.Accounts.User
 
-    @valid_attrs %{username: "some username"}
-    @update_attrs %{username: "some updated username"}
+    @valid_attrs %{username: "username"}
+    @update_attrs %{username: "anotherusername"}
     @invalid_attrs %{username: nil}
 
     def user_fixture(attrs \\ %{}) do
@@ -31,7 +31,7 @@ defmodule JaxEx.AccountsTest do
 
     test "create_user/1 with valid data creates a user" do
       assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
-      assert user.username == "some username"
+      assert user.username == "username"
     end
 
     test "create_user/1 with invalid data returns error changeset" do
@@ -41,7 +41,7 @@ defmodule JaxEx.AccountsTest do
     test "update_user/2 with valid data updates the user" do
       user = user_fixture()
       assert {:ok, %User{} = user} = Accounts.update_user(user, @update_attrs)
-      assert user.username == "some updated username"
+      assert user.username == "anotherusername"
     end
 
     test "update_user/2 with invalid data returns error changeset" do

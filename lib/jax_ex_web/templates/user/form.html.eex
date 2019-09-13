@@ -5,11 +5,16 @@
     </div>
   <% end %>
 
-  <%= label f, :username %>
-  <%= text_input f, :username %>
+  <%= text_input f, :username, placeholder: "Username" %>
   <%= error_tag f, :username %>
 
+  <%= password_input f, :password, placeholder: "Password" %>
+  <%= error_tag f, :password %>
+
+  <%= password_input f, :password_confirmation, placeholder: "Confirm Password" %>
+  <%= error_tag f, :password_confirmation %>
+
   <div>
-    <%= submit "Save" %>
+    <%= submit "Submit", class: "btn right secondary-color" %>
   </div>
 <% end %>
