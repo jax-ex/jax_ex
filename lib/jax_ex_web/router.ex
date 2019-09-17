@@ -14,13 +14,18 @@ defmodule JaxExWeb.Router do
   end
 
   scope "/", JaxExWeb do
-    pipe_through :browser
+    pipe_through [:browser, JaxExWeb.Plugs.Guest]
+
+    resources "/register", UserController, only: [:create, :new]
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+  end
+
+  scope "/", JaxExWeb do
+    pipe_through [:browser, JaxExWeb.Plugs.Auth]
+
+    delete "/logout", SessionController, :delete
 
     get "/", PageController, :index
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", JaxExWeb do
-  #   pipe_through :api
-  # end
 end
