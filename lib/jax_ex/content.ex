@@ -21,6 +21,21 @@ defmodule JaxEx.Content do
     Repo.all(Post)
   end
 
+  def list_posts(author, %{date: date}) do
+    from(p in Post,
+      where: p.user == ^author,
+      where: fragment("date_trunc('day', ?)", p.published_at) == type(^date, :date)
+    )
+    |> Repo.all()
+  end
+
+  def list_posts(author, _) do
+    from(p in Post,
+      where: p.user_id == ^author.id
+    )
+    |> Repo.all()
+  end
+
   @doc """
   Gets a single post.
 

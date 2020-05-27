@@ -5,7 +5,7 @@ defmodule JaxEx.Content.Post do
   schema "posts" do
     field :content, :string
     field :title, :string
-    field :user, :id
+    belongs_to :user, JaxEx.Accounts.User
 
     timestamps()
   end
